@@ -1,0 +1,65 @@
+BitMasks
+========
+
+Bitwise AND operator
+--------------------
+
+x   y   x AND y
+-   -   -------
+0   0      0        -| when 'y' operand is 0, the result is always 0, regardless of the value of 'x'.
+1   0      0        -|
+0   1      0        -| when 'y' operand is 1, the value of 'x' is copied as is in the result.
+1   1      1        -|
+
+We can view the 'y' operand as the mask that gets applied to the 'x' operand.
+  - When the mask is 0, the result is always going to be 0.
+  - When the mask is 1, the value is 'x' remain unaltered.
+
+This is called a 'Bit Clearing' operation. Therefore, Bitwise AND operator gives us the possibility to create a
+'bit mask' for 'bit clearing', allowing us to reset each bits of an operand to each 0 in the mask.
+
+It also gives a possibility of 'bit testing' to check if the output is not 0 i.e. atleast one bit is set to 1.
+
+Bitwise OR operator
+-------------------
+
+x   y   x AND y
+-   -   -------
+0   0      0        -| when 'y' operand is 0, the result is copy of 'x'.
+1   0      1        -|
+0   1      1        -| when 'y' operand is 1, the result is 1, regardless of the value of 'x'.
+1   1      1        -|
+
+We can view the 'y' operand as the mask that gets applied to the 'x' operand.
+  - When the mask is 0, the result is always copy of 'x'.
+  - When the mask is 1, the result is always 1.
+
+This is called 'bit setting' operation. The Bitwise OR operator gives us a possibility to create a bit mask for 'bit setting',
+allowing us to set the bit of an operand at 1 at each 1 inside the mask.
+
+Bitwise XOR operator
+--------------------
+
+x   y   x AND y
+-   -   -------
+0   0      0        -| when 'y' operand is 0, the result is 'x'.
+1   0      1        -|
+0   1      1        -| when 'y' operand is 1, the result is 1's complement of 'x'.
+1   1      0        -|
+
+We can view the 'y' operand as the mask that gets applied to the 'x' operand.
+  - When the mask is 0, the result is 'x'.
+  - When the mask is 1, the result is 1's complement of 'x'.
+
+The Bitwise XOR operator gives us a possibility to create a BitMask for 'bit toggling', allowing us to switch the bits
+of the other operand for every 1 in the mask.
+
+Sum Up
+------
+
+Operator    BitMask         Description
+--------    -------         -----------
+    &       Bit Clearing    Mask is 0 -> result is 0
+    &       Bit Testing     Mask is 1 -> input pass
+    |       Bit Setting     Mask is 1 -> result is 1
+    ^       Bit Toggling    Mask is 1 -> input toggle
